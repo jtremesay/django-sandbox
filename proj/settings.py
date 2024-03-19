@@ -12,6 +12,18 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from os import environ
 from pathlib import Path
+from typing import Optional
+
+
+def get_env_var(name: str, default: Optional[str] = None) -> Optional[str]:
+    # Docker compose/swarm provides secrets through files
+    try:
+        secret_path = Path(environ[f"{name}_FILE"])
+    except KeyError:
+        return environ.get(name, default)
+    else:
+        return secret_path.read_text()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,7 +33,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = environ.get("DJANGO_SECRET_KEY")
+SECRET_KEY = get_env_var("DJANGO_SECRET_KEY")
 if SECRET_KEY is None:
     raise ValueError("DJANGO_SECRET_KEY is not set")
 
