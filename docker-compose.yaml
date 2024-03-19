@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  app:
+    image: "killruana/django-sandbox:main"
+    environment:
+      DJANGO_SECRET_KEY_FILE: "/run/secrets/django_sandbox_secret_key"
+      DJANGO_ALLOWED_HOSTS: "django-sandbox.jtremesay.org,django-sandbox.slaanesh.org"
+    ports:
+      - "8003:8003"
+    networks:
+      - traefik_public
+    secrets:
+      - django_sandbox_secret_key
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.middlewares.djangosandbox-compress.compress=true"
+      - "traefik.http.routers.djangosandbox.entrypoints=websecure"
+      - "traefik.http.routers.djangosandbox.middlewares=djangosandbox-compress"
+      - "traefik.http.routers.djangosandbox.rule=Host(`django-sandbox.jtremesay.org`, `django-sandbox.slaanesh.org`)"
+      - "traefik.http.routers.djangosandbox.service=djangosandbox"
+      - "traefik.http.routers.djangosandbox.tls.certresolver=zerossl"
+      - "traefik.http.services.djangosandbox.loadbalancer.server.port=8003"
