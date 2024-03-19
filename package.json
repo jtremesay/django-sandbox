@@ -10,8 +10,11 @@
     "devDependencies": {
         "django-vite-plugin": "^4.0.0",
         "glob": "^10.3.10",
+        "sass": "^1.72.0",
         "typescript": "^5.3.3",
         "vite": "^5.1.1"
     },
-    "dependencies": {}
+    "dependencies": {
+        "bootstrap": "^5.3.3"
+    }
 }

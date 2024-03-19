@@ -7,25 +7,29 @@
     <title>Django sandbox</title>
     {% vite %}
     {% vite "app/js/main.mjs" %}
+    {% vite "app/styles/bootstrap.scss" %}
 </head>
 
 <body>
-    <h1>Django sandbox</h1>
-    <p>
-        My Django sandbox. I use it to test things.
-    </p>
-    <p>
-        <a href="https://github.com/jtremesay/django-sandbox/">Source code</a>
-    </p>
+    <div class="container py-4 px-3 mx-auto">
+        <h1>Django sandbox</h1>
+        <p>
+            My Django sandbox. I use it to test things.
+        </p>
+        <p>
+            <a href="https://github.com/jtremesay/django-sandbox/">Source code</a>
+        </p>
 
-    <h2>Functionalities</h2>
-    <p>
-    <ul>
-        <li>ASGI through <a href="https://github.com/django/daphne">daphne</a></li>
-        <li>statics served by <a href="https://whitenoise.readthedocs.io/en/latest/">whitenoise</a></li>
-        <li>front handled by <a href="django_vite_plugin">django-vite-plugin</a></li>
-    </ul>
-    </p>
+        <h2>Functionalities</h2>
+        <p>
+        <ul>
+            <li>ASGI through <a href="https://github.com/django/daphne">daphne</a></li>
+            <li>statics served by <a href="https://whitenoise.readthedocs.io/en/latest/">whitenoise</a></li>
+            <li>front handled by <a href="django_vite_plugin">django-vite-plugin</a> + <a href="https://vitejs.dev/">vite</a></li>
+            <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
+        </ul>
+        </p>
+    </div>
 </body>
 
 </html>
