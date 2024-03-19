@@ -1,0 +1,17 @@
+{
+    "name": "app",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "tsc && vite build"
+    },
+    "devDependencies": {
+        "django-vite-plugin": "^4.0.0",
+        "glob": "^10.3.10",
+        "typescript": "^5.3.3",
+        "vite": "^5.1.1"
+    },
+    "dependencies": {}
+}

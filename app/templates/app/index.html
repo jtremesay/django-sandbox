@@ -1,13 +1,19 @@
+{% load vite %}
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <title>Django sandbox</title>
+    {% vite %}
+    {% vite "app/js/main.mjs" %}
 </head>
 
 <body>
     <h1>Django sandbox</h1>
+    <p>
+        My Django sandbox. I use it to test things.
+    </p>
     <p>
         <a href="https://github.com/jtremesay/django-sandbox/">Source code</a>
     </p>
@@ -17,6 +23,7 @@
     <ul>
         <li>ASGI through <a href="https://github.com/django/daphne">daphne</a></li>
         <li>statics served by <a href="https://whitenoise.readthedocs.io/en/latest/">whitenoise</a></li>
+        <li>front handled by <a href="django_vite_plugin">django-vite-plugin</a></li>
     </ul>
     </p>
 </body>
