@@ -6,7 +6,7 @@ services:
       DJANGO_SECRET_KEY_FILE: "/run/secrets/django_sandbox_secret_key"
       DJANGO_ALLOWED_HOSTS: "django-sandbox.jtremesay.org,django-sandbox.slaanesh.org"
     ports:
-      - "8003:8003"
+      - "8004:8004"
     networks:
       - traefik_public
     secrets:
@@ -19,7 +19,7 @@ services:
       - "traefik.http.routers.djangosandbox.rule=Host(`django-sandbox.jtremesay.org`, `django-sandbox.slaanesh.org`)"
       - "traefik.http.routers.djangosandbox.service=djangosandbox"
       - "traefik.http.routers.djangosandbox.tls.certresolver=zerossl"
-      - "traefik.http.services.djangosandbox.loadbalancer.server.port=8003"
+      - "traefik.http.services.djangosandbox.loadbalancer.server.port=8004"
 
 networks:
   traefik_public:

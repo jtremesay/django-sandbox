@@ -27,4 +27,4 @@ COPY app/ app/
 ARG DJANGO_SECRET_KEY="build"
 RUN ./manage.py collectstatic --no-input
 
-CMD ["daphne", "proj.asgi:application", "--bind", "0.0.0.0", "--port", "8003"]
+CMD ["daphne", "proj.asgi:application", "--bind", "0.0.0.0", "--port", "8004"]
