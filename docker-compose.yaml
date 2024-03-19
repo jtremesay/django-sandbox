@@ -20,3 +20,11 @@ services:
       - "traefik.http.routers.djangosandbox.service=djangosandbox"
       - "traefik.http.routers.djangosandbox.tls.certresolver=zerossl"
       - "traefik.http.services.djangosandbox.loadbalancer.server.port=8003"
+
+networks:
+  traefik_public:
+    external: true
+
+secrets:
+  django_sandbox_secret_key:
+    external: true
