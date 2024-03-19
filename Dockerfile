@@ -14,17 +14,21 @@ RUN python3 -m venv $VIRTUAL_ENV
 ENV PATH="$VIRTUAL_ENV/bin:$PATH"
 
 # Install python & node deps
-COPY requirements.txt ./
-RUN pip install -Ur requirements.txt
+COPY requirements.txt package.json package-lock.json ./
+RUN pip install -Ur requirements.txt \
+    && npm install
 
 # Copy source dir
-COPY manage.py ./
+COPY manage.py tsconfig.json vite.config.mts ./
 COPY proj/ proj/
 COPY app/ app/
 
 # Build
 # We need a secret a key to use manage.py, so we use a build time arg
 ARG DJANGO_SECRET_KEY="build"
-RUN ./manage.py collectstatic --no-input
+RUN mkdir -p staticfiles/.vite/ \
+    && echo '{}' > staticfiles/.vite/manifest.json \
+    && npm run build \ 
+    && ./manage.py collectstatic --no-input
 
 CMD ["daphne", "proj.asgi:application", "--bind", "0.0.0.0", "--port", "8004"]

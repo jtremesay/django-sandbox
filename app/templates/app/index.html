@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <title>Django sandbox</title>
     {% vite %}
-    {% vite "app/js/main.mjs" %}
+    {% vite "app/js/main.mts" %}
     {% vite "app/styles/bootstrap.scss" %}
 </head>
 
@@ -25,7 +25,7 @@
         <ul>
             <li>ASGI through <a href="https://github.com/django/daphne">daphne</a></li>
             <li>statics served by <a href="https://whitenoise.readthedocs.io/en/latest/">whitenoise</a></li>
-            <li>front handled by <a href="django_vite_plugin">django-vite-plugin</a> + <a href="https://vitejs.dev/">vite</a></li>
+            <li>front handled by <a href="https://github.com/protibimbok/django-vite-plugin">django-vite-plugin</a> + <a href="https://vitejs.dev/">vite</a></li>
             <li><a href="https://getbootstrap.com/">Bootstrap</a></li>
         </ul>
         </p>

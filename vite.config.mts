@@ -6,7 +6,8 @@ export default defineConfig({
     plugins: [
         djangoVitePlugin({
             input: [
-                ...globSync('app/static/app/js/*.mjs'),
+                ...globSync('app/static/app/js/*.mts'),
+                ...globSync('app/static/app/styles/*.scss'),
             ]
         })
     ],
