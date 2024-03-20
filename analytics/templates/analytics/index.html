@@ -1,0 +1,19 @@
+{% load vite %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Django sandbox</title>
+    {% vite %}
+    {% vite "app/js/main.mts" %}
+    {% vite "app/styles/bootstrap.scss" %}
+</head>
+
+<body>
+    <div class="container py-4 px-3 mx-auto">
+        <h1>Analytics</h1>
+    </div>
+</body>
+
+</html>
