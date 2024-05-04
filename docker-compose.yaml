@@ -18,7 +18,7 @@ services:
       - "traefik.http.routers.djangosandbox.middlewares=djangosandbox-compress"
       - "traefik.http.routers.djangosandbox.rule=Host(`django-sandbox.jtremesay.org`) || Host(`django-sandbox.slaanesh.org`)"
       - "traefik.http.routers.djangosandbox.service=djangosandbox"
-      - "traefik.http.routers.djangosandbox.tls.certresolver=leresolve"
+      - "traefik.http.routers.djangosandbox.tls.certresolver=leresolver"
       - "traefik.http.services.djangosandbox.loadbalancer.server.port=8004"
 
 networks:
